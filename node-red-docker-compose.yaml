@@ -1,0 +1,13 @@
+  nodered:
+    container_name: nodered
+    image: nodered/node-red
+    environment:
+      - TZ=<TIMEZONE>
+    ports:
+      - 1880:1880
+    volumes:
+      - ./nodered:/data
+    depends_on:
+      - homeassistant
+      - mosquitto
+    restart: unless-stopped
